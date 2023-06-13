@@ -1,0 +1,19 @@
+import React, {useState} from "react";
+
+function AddElement(props){
+
+    const newItem = props.addItem;
+    const [description,setDescription] = useState("");
+
+    const handlerAddItem = () => {
+        console.log(description)
+        newItem(description)
+        setDescription("")
+    };
+    return <>
+    <input value={description} onChange={e => setDescription(e.target.value)}></input>
+    <button onClick={handlerAddItem}> Agregar</button>
+    </>
+}
+
+export default AddElement;
